@@ -1,7 +1,7 @@
-import Shape from '@/enums/Shape';
-import Shade from '@/enums/Shade';
 import Color from '@/enums/Color';
 import Features from '@/interfaces/Features';
+import Shade from '@/enums/Shade';
+import Shape from '@/enums/Shape';
 
 class Card {
   private readonly amount: number;

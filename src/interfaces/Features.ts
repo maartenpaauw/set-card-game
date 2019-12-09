@@ -1,6 +1,6 @@
-import Shape from '@/enums/Shape';
-import Shade from '@/enums/Shade';
 import Color from '@/enums/Color';
+import Shade from '@/enums/Shade';
+import Shape from '@/enums/Shape';
 
 interface Features {
   amount: number,
