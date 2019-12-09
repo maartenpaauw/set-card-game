@@ -1,14 +1,5 @@
-@mixin color($color) {
-  border-color: $color;
-  background-color: $color;
-}
-
-@mixin striped($color) {
-  background: repeating-linear-gradient(
-    45deg,
-    $color,
-    $color $border-size,
-    $white $border-size,
-    $white $border-size * 3
-  );
+@mixin color($fill) {
+  path {
+    fill: $fill;
+  }
 }

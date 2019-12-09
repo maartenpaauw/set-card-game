@@ -1,3 +1,5 @@
+import product from 'cartesian-product';
+import shuffle from 'lodash.shuffle';
 import Card from '@/models/Card';
 import Shape from '@/enums/Shape';
 import Shade from '@/enums/Shade';
@@ -11,15 +13,23 @@ class Deck {
   }
 
   private make(): void {
-    [1, 2, 3].forEach((amount: number) => {
-      Object.values(Shape).forEach((shape: Shape) => {
-        Object.values(Shade).forEach((shade: Shade) => {
-          Object.values(Color).forEach((color: Color) => {
-            this.cards.push(new Card(amount, shape, shade, color));
-          });
-        });
-      });
+    const combinations = [
+      [1, 2, 3],
+      Object.values(Shape),
+      Object.values(Shade),
+      Object.values(Color),
+    ];
+
+    product(combinations).forEach((combination: Array<number | string>) => {
+      // @ts-ignore
+      this.cards.push(new Card(...combination));
     });
+  }
+
+  public shuffle(): Deck {
+    this.cards = shuffle(this.cards);
+
+    return this;
   }
 }
 

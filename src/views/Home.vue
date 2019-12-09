@@ -17,7 +17,7 @@ import Deck from '@/models/Deck';
   },
 })
 export default class Home extends Vue {
-  readonly deck: Deck = new Deck();
+  readonly deck: Deck = new Deck().shuffle();
 }
 </script>
 
