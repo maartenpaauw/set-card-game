@@ -1,0 +1,77 @@
+.card {
+  align-items: center;
+  border-color: $black;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  width: 200px;
+}
+
+.card__shape {
+  border-style: solid;
+  border-width: $border-size;
+  width: 100px;
+  height: 40px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  // Shape
+  &--diamond {
+
+  }
+
+  // Shape
+  &--squiggle {
+
+  }
+
+  // Shape
+  &--oval {
+    border-radius: 20px;
+  }
+
+  // Shade
+  &--solid {
+  }
+
+  // Shade
+  &--striped {
+    &.card__shape--red {
+      @include striped($red);
+    }
+
+    &.card__shape--green {
+      @include striped($green);
+    }
+
+    &.card__shape--blue {
+      @include striped($blue);
+    }
+  }
+
+  // Shade
+  &--open {
+    background-color: $white !important;
+  }
+
+  // Color
+  &--red {
+    @include color($red);
+  }
+
+  // Color
+  &--green {
+    @include color($green);
+  }
+
+  // Color
+  &--blue {
+    @include color($blue);
+  }
+}

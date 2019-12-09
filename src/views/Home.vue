@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section>
+    <template v-for="card in deck.cards">
+      <set-card :features="card.features" :key="card.id" style="card" />
+    </template>
+  </section>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Card from '@/components/Card.vue';
+import Deck from '@/models/Deck';
 
-export default {
-  name: 'home',
+@Component({
   components: {
-    HelloWorld,
+    'set-card': Card,
   },
-};
+})
+export default class Home extends Vue {
+  readonly deck: Deck = new Deck();
+}
 </script>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin: 10px;
+  }
+</style>
